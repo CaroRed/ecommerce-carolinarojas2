@@ -1,4 +1,5 @@
 import {Container , Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
+import CartWidget from '../CartWidget/CartWidget'
 
 import './NavBar.css'
 
@@ -24,6 +25,9 @@ function NavBar() {
                 Otros
               </NavDropdown.Item>
             </NavDropdown>
+          </Nav>
+          <Nav>
+            <Nav.Link href="#cart"><CartWidget/></Nav.Link>
           </Nav>
           <Form className="d-flex">
             <FormControl
