@@ -1,0 +1,21 @@
+.addToCartForm{
+    width: 100%;
+    max-width: 250px;
+    display: block;
+    margin: 0 auto;
+}
+
+.addToCartForm .number{
+    width: 100%;
+    max-width: 50px;
+    text-align: center;
+}
+
+.addToCartForm .addToCartBtn{
+    display: block;
+    margin: 0 auto;
+}
+
+.count-container{
+    justify-content: center;
+}
