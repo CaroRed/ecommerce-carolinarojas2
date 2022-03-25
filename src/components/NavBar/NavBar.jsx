@@ -1,4 +1,5 @@
 import {Container , Navbar, Nav, NavDropdown, Form, FormControl, Button} from 'react-bootstrap'
+import { Link, NavLink } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
 
 import './NavBar.css'
@@ -7,7 +8,7 @@ function NavBar() {
     return (
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container fluid>
-        <Navbar.Brand href="#">React Ecommerce</Navbar.Brand>
+        <Navbar.Brand><Link to="/">React Ecommerce</Link></Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -15,7 +16,7 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Inicio</Nav.Link>
+            <NavLink to="/" className="nav-link">Inicio</NavLink>
             <Nav.Link href="#action2">Tienda</Nav.Link>
             <NavDropdown title="Categorías" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Figuras</NavDropdown.Item>
@@ -27,7 +28,7 @@ function NavBar() {
             </NavDropdown>
           </Nav>
           <Nav>
-            <Nav.Link href="#cart"><CartWidget/></Nav.Link>
+            <CartWidget/>
           </Nav>
           <Form className="d-flex">
             <FormControl

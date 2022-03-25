@@ -1,8 +1,12 @@
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import NavBar from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Cart from './components/Cart/Cart';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+
 
 
 
@@ -10,8 +14,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <ItemListContainer greeting='Listado de Productos' />
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+        <Route path="/"
+        element={<ItemListContainer greeting='Listado de Productos' />}
+        />
+        <Route path="/cart" element={<Cart />}/>
+        </Routes>
+      </BrowserRouter>
+      <ItemDetailContainer />
     </div>
   );
 }
