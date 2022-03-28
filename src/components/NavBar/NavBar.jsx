@@ -19,8 +19,10 @@ function NavBar() {
             <NavLink to="/" className="nav-link">Inicio</NavLink>
             <Nav.Link href="#action2">Tienda</Nav.Link>
             <NavDropdown title="Categorías" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Figuras</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Mochilas</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/categoria/electro">Electro</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/categoria/gamer">Gamer</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/categoria/retro">Retro</NavDropdown.Item>
+              
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">
                 Otros

@@ -20,10 +20,14 @@ function App() {
         <Route path="/"
         element={<ItemListContainer greeting='Listado de Productos' />}
         />
+        <Route path="/categoria/:catId"
+        element={<ItemListContainer greeting='Listado de Productos' />}
+        />
+        <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart />}/>
         </Routes>
       </BrowserRouter>
-      <ItemDetailContainer />
+      
     </div>
   );
 }
