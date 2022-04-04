@@ -1,9 +1,14 @@
+import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'
 
 function ItemDetail({product}) {
 
+  const [showButton, setButton] = useState('addToCart');
+
   const onAdd = (count) => {
     console.log('function on Add count is: ' + count)
+    setButton('goToCart')
   }
   
   return (
@@ -13,7 +18,11 @@ function ItemDetail({product}) {
         <h2>{product.name}</h2>
         <p>{product.description}</p>
         <p>${product.price}</p>
-        <span className="d-block"><ItemCount stock={product.stock} initial={1} onAdd={onAdd} /></span>
+        {
+          showButton === 'addToCart' ? <ItemCount stock={product.stock} initial={1} onAdd={onAdd} />
+          :
+          <Link to="/cart"><button className='btn btn-success'>Terminar mi compra</button></Link>
+        }
       </div>
     </div>
   )

@@ -3,6 +3,7 @@ import {getProducts} from '../../helpers/getProducts'
 import { useParams } from "react-router-dom";
 
 import ItemList from '../ItemList/ItemList'
+import Loading from "../Loading/Loading";
 
 function ItemListContainer({greeting}) {
 
@@ -28,9 +29,7 @@ function ItemListContainer({greeting}) {
     
         <div className="row">
           {loading ? 
-            <figure className="figure">
-              <img src="/assets/images/spinner.gif" className="figure-img img-fluid" />
-            </figure>
+            <Loading />
           :
           <ItemList products={products} />
           }

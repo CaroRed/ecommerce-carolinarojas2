@@ -3,6 +3,7 @@ import {getProducts} from '../../helpers/getProducts'
 import { useParams } from "react-router-dom";
 
 import ItemDetail from "../ItemDetail/ItemDetail";
+import Loading from "../Loading/Loading";
 
 function ItemDetailContainer() {
 
@@ -20,7 +21,11 @@ function ItemDetailContainer() {
 
     return (
       <div className="container mt-5">
-       <ItemDetail product={product} />
+        {loading ? 
+          <Loading/> 
+        : 
+          <ItemDetail product={product} />
+        }
       </div>
     )
   }
