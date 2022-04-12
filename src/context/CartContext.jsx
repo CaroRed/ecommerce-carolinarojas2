@@ -53,10 +53,13 @@ function CartContextProvider({defaultValue = [], children}){
         setCart([])
     }
 
-    //console.log(cartItems)
+    function getTotalItems() {
+        return cartItems.reduce((totalQty, { qty: qty }) => totalQty + qty, 0);
+    }
 
+    
     return(
-        <CartContext.Provider value={{cartItems, addItem, removeItem, emptyCart}}>
+        <CartContext.Provider value={{cartItems, addItem, removeItem, emptyCart, getTotalItems}}>
             {children}
         </CartContext.Provider>
     )

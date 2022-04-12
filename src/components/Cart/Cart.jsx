@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/CartContext';
 
 function Cart() {
@@ -9,6 +10,8 @@ function Cart() {
     console.log(itemId);
     removeItem(itemId);
   }
+
+  //console.log(cartItems.length);
 
   return (
     <div className='container mt-3'><h1>Cart</h1>
@@ -24,6 +27,8 @@ function Cart() {
           </tr>
         </thead>
         <tbody>
+        { cartItems.length > 0 ?
+        <>
         {cartItems.map(prod => 
           <tr key={prod.id}>
             <td className="item">#{prod.id} - {prod.name}  </td>
@@ -32,10 +37,22 @@ function Cart() {
             <td>{Math.round(prod.price * prod.qty)}</td>
             <td><button className='btn btn-small btn-warning' onClick={()=> eliminarItem(prod.id)}>Eliminar Item</button></td>
           </tr>)}
-          </tbody>
+        </>
+        :
+        <tr><td colSpan="5">
+          <p>Cart is empty.</p>
+          
+        </td></tr>
+        }
+
+      </tbody>
         </table>
       </div>
-      <button className='btn btn-danger mt-4' onClick={emptyCart}>Vaciar Carrito</button>
+      { cartItems.length > 0 ?
+      <button className='btn btn-danger mt-4' onClick={emptyCart}>Vaciar Carrito</button>      
+      :
+      <Link to="/"><button className='btn btn-success'>Ir a Productos</button></Link>
+      }
     </div>
   )
 }

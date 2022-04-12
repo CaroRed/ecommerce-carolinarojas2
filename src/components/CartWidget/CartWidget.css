@@ -3,5 +3,15 @@
     width: 25px;
     height: 25px;
     font-size: 1.2rem;
+    
+}
+
+.cartContainer a{
+    display: flex;
+}
+
+.cartContainer span{
+    margin-left: 5px;
     margin-right: 15px;
+    margin-top: 5px;
 }
