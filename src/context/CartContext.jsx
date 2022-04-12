@@ -13,6 +13,7 @@ function CartContextProvider({defaultValue = [], children}){
             const oldProduct = getFromList(item.id);
             //actualizo la cantidad
             const newQty = oldProduct.qty + item.qty;
+            const newCost = newQty * item.price;
             //armo el producto con la nueva cantidad
             const newProduct = {
                     id: item.id,
@@ -22,6 +23,7 @@ function CartContextProvider({defaultValue = [], children}){
                     name: oldProduct.name,
                     price: oldProduct.price,
                     qty: newQty,
+                    cost: newCost,
                     stock: oldProduct.stock}
             //elimino el producto antiguo
             const removeOldItem = cartItems.filter(product => product.id !== item.id)
@@ -30,6 +32,8 @@ function CartContextProvider({defaultValue = [], children}){
             //lo agrego al carro
             setCart(cartNew)
         }else{
+            const newCost = item.qty * item.price;
+            item.cost = newCost;
             setCart([...cartItems,item])
         }
         
@@ -57,9 +61,15 @@ function CartContextProvider({defaultValue = [], children}){
         return cartItems.reduce((totalQty, { qty: qty }) => totalQty + qty, 0);
     }
 
+    function getTotalCart(){
+        return cartItems.reduce((totalCost, { cost: itemCost }) => totalCost + parseFloat(itemCost), 0);
+    }
+
+    console.log(cartItems);
+
     
     return(
-        <CartContext.Provider value={{cartItems, addItem, removeItem, emptyCart, getTotalItems}}>
+        <CartContext.Provider value={{cartItems, addItem, removeItem, emptyCart, getTotalItems, getTotalCart}}>
             {children}
         </CartContext.Provider>
     )

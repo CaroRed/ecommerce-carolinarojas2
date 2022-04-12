@@ -4,7 +4,7 @@ import { CartContext } from '../../context/CartContext';
 
 function Cart() {
 
-  const {cartItems, removeItem, emptyCart} = useContext(CartContext)
+  const {cartItems, removeItem, emptyCart, getTotalCart} = useContext(CartContext)
 
   function eliminarItem(itemId){
     console.log(itemId);
@@ -37,6 +37,7 @@ function Cart() {
             <td>{Math.round(prod.price * prod.qty)}</td>
             <td><button className='btn btn-small btn-warning' onClick={()=> eliminarItem(prod.id)}>Eliminar Item</button></td>
           </tr>)}
+          <tr><td colSpan="5"><p className='text-right'><b>TOTAL: {getTotalCart()}</b></p></td></tr>
         </>
         :
         <tr><td colSpan="5">
