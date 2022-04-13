@@ -15,9 +15,10 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-//getFireStoreApp
+getFireStoreApp()
 
 function App() {
+  const title = 'Listado de Productos'
   return (
     <div className="App">
       
@@ -26,10 +27,10 @@ function App() {
             <NavBar />
             <Routes>
             <Route path="/"
-            element={<ItemListContainer greeting='Listado de Productos' />}
+            element={<ItemListContainer greeting={title} />}
             />
             <Route path="/categoria/:catId"
-            element={<ItemListContainer greeting='Listado de Productos' />}
+            element={<ItemListContainer greeting={title} />}
             />
             <Route path="/detalle/:detalleId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />}/>

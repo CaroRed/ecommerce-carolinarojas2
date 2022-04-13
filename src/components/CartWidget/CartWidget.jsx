@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext';
 import './CartWidget.css'
 
