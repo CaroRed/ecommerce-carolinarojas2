@@ -17,7 +17,7 @@ function NavBar() {
             navbarScroll
           >
             <NavLink to="/" className="nav-link">Inicio</NavLink>
-            <Nav.Link href="#action2">Tienda</Nav.Link>
+            
             <NavDropdown title="Categorías" id="navbarScrollingDropdown">
               <NavDropdown.Item as={NavLink} to="/categoria/electro">Electro</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/categoria/gamer">Gamer</NavDropdown.Item>
